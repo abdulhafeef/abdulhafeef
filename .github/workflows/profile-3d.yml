@@ -1,0 +1,57 @@
+name: 3D Contribution Graph
+
+on:
+  schedule:
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Generate 3D Contribution Graph
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Generate settings.json
+        run: |
+          mkdir -p profile-3d-contrib
+          cat > profile-3d-contrib/settings.json << 'EOL'
+          {
+            "type": "rainbow",
+            "backgroundColor": "#0d1117",
+            "foregroundColor": "#dddddd",
+            "strongColor": "#ffffff",
+            "weakColor": "#888888",
+            "radarColor": "#7C3AED",
+            "growingAnimation": true,
+            "contribColors": [
+              "#161b22",
+              "#2D1B69",
+              "#5B21B6",
+              "#7C3AED",
+              "#06B6D4"
+            ]
+          }
+          EOL
+
+      - name: Generate 3D contribution graphs
+        uses: yoshi389111/github-profile-3d-contrib@0.7.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN || secrets.GITHUB_TOKEN }}
+          USERNAME: abdulhafeef
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile-3d-contrib/
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "chore: update 3d contribution graph [skip ci]"
+            git push origin HEAD:main
+          fi
