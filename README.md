@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:7C3AED,100:06B6D4&height=200&section=header&text=Abdul%20Hafeef&fontSize=58&fontAlignY=40&animation=fadeIn&fontColor=white&desc=AI%20%26%20Data%20Science%20%C2%B7%20Projects%20%C2%B7%20Always%20Learning&descAlignY=62&descSize=17" width="100%" alt="Abdul Hafeef - Header Banner" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:7C3AED,100:06B6D4&height=200&section=header&text=Abdul%20Hafeef&fontSize=58&fontAlignY=40&animation=fadeIn&fontColor=white&desc=AI%20and%20Data%20Science%20-%20Projects%20-%20Always%20Learning&descAlignY=62&descSize=17" width="100%" alt="Abdul Hafeef - Header Banner" />
 
   [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=2000&pause=500&color=A78BFA&center=true&vCenter=true&width=600&lines=Hi%2C+I%27m+Abdul+Hafeef;AI+%26+Data+Science+Student;Exploring+ideas+and+technology;Building+things+worth+sharing)](https://git.io/typing-svg)
 

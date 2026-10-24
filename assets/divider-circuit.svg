@@ -1,0 +1,49 @@
+<svg width="1120" height="48" viewBox="0 0 1120 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<!--
+  Circuit Section Divider
+  Adapted from MIT-licensed Profile Signal Kit (c) 2026 Profile Signal Kit contributors
+  Customized for Abdul Hafeef's Portfolio
+-->
+<title id="title">Circuit Section Divider</title>
+<desc id="desc">Animated circuit divider separating portfolio sections</desc>
+
+<defs>
+  <radialGradient id="divBg" cx="50%" cy="50%" r="80%">
+    <stop offset="0%" stop-color="#0f172a"/>
+    <stop offset="60%" stop-color="#070d1e"/>
+    <stop offset="100%" stop-color="#030712"/>
+  </radialGradient>
+  <linearGradient id="divBeam" x1="0" x2="1">
+    <stop offset="0%" stop-color="#00f0ff" stop-opacity="0"/>
+    <stop offset="50%" stop-color="#00f0ff" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#818cf8" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="divRoute" x1="0" x2="1">
+    <stop offset="0%" stop-color="#00f0ff"/>
+    <stop offset="50%" stop-color="#818cf8"/>
+    <stop offset="100%" stop-color="#38bdf8"/>
+  </linearGradient>
+  <pattern id="divGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+    <path d="M24 0H0V24" stroke="#00f0ff" stroke-opacity="0.04" stroke-width="1" fill="none"/>
+  </pattern>
+  <filter id="divGlow">
+    <feGaussianBlur stdDeviation="3"/>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <style>
+    .dash { stroke-dasharray: 12 16; animation: dash 14s linear infinite; }
+    .pulse { animation: pulse 3s ease-in-out infinite; transform-origin: center; }
+    @keyframes dash { to { stroke-dashoffset: -560; } }
+    @keyframes pulse { 0%,100% { opacity: .40; } 50% { opacity: 1; } }
+  </style>
+</defs>
+
+<rect width="1120" height="48" rx="14" fill="url(#divBg)"/>
+<rect width="1120" height="48" rx="14" fill="url(#divGrid)"/>
+<rect x="1" y="1" width="1118" height="46" rx="13" stroke="#00f0ff" stroke-opacity=".18"/>
+
+<path class="dash" filter="url(#divGlow)" d="M36 24 H220 L256 12 L300 36 L340 24 H780 L820 12 L864 36 L900 24 H1084" stroke="url(#divRoute)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<circle class="pulse" cx="256" cy="12" r="4" fill="#00f0ff"/>
+<circle class="pulse" cx="864" cy="36" r="4" fill="#818cf8"/>
+<circle class="pulse" cx="560" cy="24" r="5" stroke="#00f0ff" stroke-opacity=".7" fill="#0b172a"/>
+</svg>
