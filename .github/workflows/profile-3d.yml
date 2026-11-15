@@ -50,7 +50,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN || secrets.TOKEN || secrets.GITHUB_TOKEN }}
           USERNAME: abdulhafeef
-          SETTING_JSON: "profile-3d-contrib/settings.json"
 
       - name: Commit and push changes
         run: |
