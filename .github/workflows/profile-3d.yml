@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "0 18 * * *"
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/profile-3d.yml'
 
 permissions:
   contents: write
@@ -16,7 +21,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.TOKEN || secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN || secrets.TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Generate settings.json
         run: |
@@ -43,8 +48,9 @@ jobs:
       - name: Generate 3D contribution graphs
         uses: yoshi389111/github-profile-3d-contrib@0.7.1
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN || secrets.TOKEN || secrets.GITHUB_TOKEN }}
           USERNAME: abdulhafeef
+          SETTING_JSON: "profile-3d-contrib/settings.json"
 
       - name: Commit and push changes
         run: |

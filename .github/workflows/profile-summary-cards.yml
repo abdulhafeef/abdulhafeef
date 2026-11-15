@@ -1,0 +1,35 @@
+name: GitHub Profile Summary Cards
+
+on:
+  schedule:
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/profile-summary-cards.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Generate Profile Summary Cards
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN || secrets.TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Generate Profile Summary Cards
+        uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN || secrets.TOKEN || secrets.GITHUB_TOKEN }}
+        with:
+          USERNAME: abdulhafeef
+          BRANCH_NAME: main
+          THEME: tokyonight
+          AUTO_PUSH: true
+
